@@ -6,6 +6,11 @@ Generates a hexgrid by dividing each pixel into an 10x17 small grid and an 3x2 b
 Algorithm:
 
 ```Java
+private static final float HEX_GRID_SIZE = 30f;
+	
+private static final float HEX_GRID_FACTOR_X = HEX_GRID_SIZE / 2f;
+private static final float HEX_GRID_FACTOR_Y = (float) (HEX_GRID_SIZE / 2f * Math.tan(Math.toRadians(60)));
+
 private static int[] getHexGrid(int px, int py) {
 	int sgx = (int) (px / HEX_GRID_FACTOR_X);
 	int sgy = (int) (py / HEX_GRID_FACTOR_Y);
