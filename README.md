@@ -8,8 +8,9 @@ Note: only use positive coordinates or the algorithm will mess up! I have to fix
 Algorithm:
 
 ```Java
-private static final float HEX_GRID_SIZE = 30f;
-	
+private static final float HEX_GRID_SIZE = 30f;//This is the side length of the hexagon. You can freely change this.
+
+//Keep these as they are
 private static final float HEX_GRID_FACTOR_X = HEX_GRID_SIZE / 2f;
 private static final float HEX_GRID_FACTOR_Y = (float) (HEX_GRID_SIZE / 2f * Math.tan(Math.toRadians(60)));
 
