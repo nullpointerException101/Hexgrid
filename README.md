@@ -22,14 +22,21 @@ private static int[] getHexGrid(int px, int py) {
 	int bgx = sgx / 3;
 	int bgy = sgy / 2;
 	
-	if (sgx % 3 == 2) {
-		float ipx = px / HEX_GRID_FACTOR_X - sgx;
+	if (sgx % 3 == 2) {//If you are in the right third of the big grid
+		float ipx = px / HEX_GRID_FACTOR_X - sgx;//Internal positions inside the small grid cells in percent
 		float ipy = py / HEX_GRID_FACTOR_Y - sgy;
 		
+		// (bgx & 1) == (sgy & 1) is a "chess - pattern" check
+		// if true you have an edge from the upper-left to lower-right corner 
+		// otherwise you have an edge from the lower-left to upper-right corner.
+		// Then it checks if you are part of the cell belonging to the left hex grid cell or the right
+		// hex grid cell and updates the small and big grid coordinates accordingly.
 		if (ipx > ((bgx & 1) == (sgy & 1)? ipy : (1 - ipy))) {
+			//belongs to the hex grid cell to the right 
 			sgx += 1;
 			bgx += 1;
 		} else {
+			//belongs to the hex grid cell to the left
 			sgx -= 1;
 		}
 	}
