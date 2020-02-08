@@ -3,9 +3,9 @@ Hexgrid generator
 
 Generates a hexgrid by dividing each pixel into an 10x17 small grid and an 3x2 big grid (of the smaller grid) and returns the coordinate to the corresponding hex cell.
 
-Note: only use positive coordinates or the algorithm will mess up! I have to fix that bug someday...  
+<font color="red">Note: only use positive coordinates or the algorithm will mess up! I have to fix that bug someday...  
 
-Also Note: the hex grid labeled (0|0) in the Test.png is actual hex grid (1|2)! The (0|0) grid lies in the upper-left most position. The way the numbers are rendered now is just easier to read.
+Also Note: the hex grid labeled (0|0) in the Test.png is actual hex grid (1|2)! The (0|0) grid lies in the upper-left most position. The way the numbers are rendered now is just easier to read.</font>
 
 Algorithm:
 
