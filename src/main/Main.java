@@ -256,10 +256,7 @@ public class Main {
 			float ipy = py / HEX_GRID_FACTOR_Y - sgy;
 			
 			if (ipx > ((bgx & 1) == (sgy & 1)? ipy : (1 - ipy))) {
-				sgx += 1;
 				bgx += 1;
-			} else {
-				sgx -= 1;
 			}
 		}
 		
