@@ -30,20 +30,19 @@ private static int[] getHexGrid(int px, int py) {
 		// if true you have an edge from the upper-left to lower-right corner 
 		// otherwise you have an edge from the lower-left to upper-right corner.
 		// Then it checks if you are part of the cell belonging to the left hex grid cell or the right
-		// hex grid cell and updates the small and big grid coordinates accordingly.
+		// hex grid cell and updates the big grid coordinate accordingly.
 		if (ipx > ((bgx & 1) == (sgy & 1)? ipy : (1 - ipy))) {
-			//belongs to the hex grid cell to the right 
-			sgx += 1;
+			//belongs to the hex grid cell to the right
 			bgx += 1;
-		} else {
-			//belongs to the hex grid cell to the left
-			sgx -= 1;
 		}
 	}
 		
-	if ((bgx & 1) == 0) {
+	if ((bgx & 1) == 0) {//if you are in an
+		//even column: return the coordinates as is
 		return new int[] {bgx, bgy};
 	} else {
+		//uneven column: add one to the big grid y coordinate
+		//		 if you are in the lower part of the big grid cell
 		return new int[] {bgx, bgy + ((sgy & 1) == 0? 0 : 1)};
 	}
 }
