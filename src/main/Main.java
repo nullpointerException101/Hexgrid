@@ -153,6 +153,8 @@ public class Main {
 				//choose grid color based on coordinates
 				if (hg[0] == 0 || hg[0] >= (int) (IMAGE_WIDTH / (3 * HEX_GRID_FACTOR_X)) || hg[1] == 0 || hg[1] >= (int) (IMAGE_HEIGHT / (2 * HEX_GRID_FACTOR_Y))) {
 					data[px][py] = 9;
+				} else if ((hg[0] & 1) == 1 && hg[1] == 1) {
+					data[px][py] = 9;
 				} else {
 					data[px][py] = (hg[1] + ((hg[0] & 1) == 0? 0 : 1)) % 3;
 				}
@@ -186,7 +188,7 @@ public class Main {
 					String str = (gx - 1) + " | " + (gy - 1);
 					
 					final int px = (int) (gx * 3 * HEX_GRID_FACTOR_X + HEX_GRID_FACTOR_X - (str.length() * 5f / 2f));
-					final int py = (int) (gy * 2 * HEX_GRID_FACTOR_Y - ((gx & 1) == 1? HEX_GRID_FACTOR_Y : 0) + HEX_GRID_FACTOR_Y - 3);
+					final int py = (int) (gy * 2 * HEX_GRID_FACTOR_Y +((gx & 1) == 1? HEX_GRID_FACTOR_Y : 0) + HEX_GRID_FACTOR_Y - 3);
 					
 					for (int n = 0; n < str.length(); n++) {
 						for (int k = 0; k < 7; k++) {
@@ -238,7 +240,7 @@ public class Main {
 		}
 		
 		try {
-			ImageIO.write(bufferdImage, "PNG", new File("Test2.png"));
+			ImageIO.write(bufferdImage, "PNG", new File("Test.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
