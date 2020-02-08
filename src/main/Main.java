@@ -150,6 +150,7 @@ public class Main {
 			for (int py = 0; py < IMAGE_HEIGHT; py++) {
 				int[] hg = getHexGrid(px, py);
 				
+				//choose grid color based on coordinates
 				if (hg[0] == 0 || hg[0] >= (int) (IMAGE_WIDTH / (3 * HEX_GRID_FACTOR_X)) || hg[1] == 0 || hg[1] >= (int) (IMAGE_HEIGHT / (2 * HEX_GRID_FACTOR_Y))) {
 					data[px][py] = 9;
 				} else {
@@ -158,6 +159,7 @@ public class Main {
 			}
 		}
 		
+		//shade edges
 		for (int px = 0; px < IMAGE_WIDTH; px++) {
 			for (int py = 0; py < IMAGE_HEIGHT; py++) {
 				if (px != 0 && py != 0 && px != IMAGE_WIDTH - 1 && py != IMAGE_HEIGHT -1 && data[px][py] != 9) {
